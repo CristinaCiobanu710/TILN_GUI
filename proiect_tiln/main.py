@@ -16,32 +16,47 @@ def WelcomePage():
         window.destroy()
         SimilarWordsPage()
 
+    def openHyponymyPercentagePage():
+        window.destroy()
+        HyponymyPercentagePage()
+
     label1 = tk.Label(window,
                       text="Analogiile de cuvinte sunt de forma vec(A) - vec(B) + vec(C), unde vec(A), vec(B) si "
                            "vec(C) sunt reprezentarile vectoriale ale cuvintelor introduse.", bg="misty rose",
-                      height=5, width=117, font=("None", 20))
+                      height=4, width=117, font=("None", 20))
 
     label2 = tk.Label(window, text="Pe baza cuvantului introdus se va afisa o lista de cuvinte asemanatoare.",
                       bg="misty "
                          "rose",
-                      height=5, width=117, font=("None", 20))
+                      height=4, width=117, font=("None", 20))
+
+    label3 = tk.Label(window, text="Se va afisa probabilitatea existentei unei relatii de hiponimie intre cuvintele "
+                                   "introduse.",
+                      bg="misty "
+                         "rose",
+                      height=4, width=117, font=("None", 20))
 
     title1 = tk.Label(window, text="CoRoLa", bg="LightSteelBlue1", font=("Courier", 60, 'bold'))
-    title2 = tk.Label(window, text="Bine ati venit!", bg="LightSteelBlue1", font=("Courier", 50))
+    title2 = tk.Label(window, text="Bine ati venit!", bg="LightSteelBlue1", font=("Courier", 45))
 
     button1 = tk.Button(window, text="Analogii de cuvinte", height=2, width=17, bg="DarkOrchid3", fg="white",
-                        font=("None", 25), command=openWordsAnalogiesPage)
+                        font=("None", 20), command=openWordsAnalogiesPage)
     button2 = tk.Button(window, text="Cuvinte similare", height=2, width=17, bg="DarkOrchid3", fg="white",
-                        font=("None", 25), command=openSimilarWordsPage)
+                        font=("None", 20), command=openSimilarWordsPage)
+    button3 = tk.Button(window, text="Relatie de hiponimie", height=2, width=17, bg="DarkOrchid3", fg="white",
+                        font=("None", 20), command=openHyponymyPercentagePage)
 
     title1.pack(pady=10)
-    title2.pack(pady=30)
+    title2.pack(pady=15)
 
     button1.pack(pady=10)
     label1.pack(pady=10)
 
     button2.pack(pady=10)
     label2.pack(pady=10)
+
+    button3.pack(pady=10)
+    label3.pack(pady=10)
 
     tk.mainloop()
 
@@ -56,6 +71,10 @@ def SimilarWordsPage():
         window.destroy()
         WordsAnalogiesPage()
 
+    def openHyponymyPercentagePage():
+        window.destroy()
+        HyponymyPercentagePage()
+
     title1 = tk.Label(window, text="CoRoLa", bg="LightSteelBlue1", font=("Courier", 45, 'bold'))
 
     label1 = tk.Label(window, text="Introduceti un cuvant pentru a obtine altele asemanatoare:", bg="LightSteelBlue1",
@@ -66,9 +85,11 @@ def SimilarWordsPage():
 
     button1 = tk.Button(window, text="Analogii de cuvinte", height=2, width=20, bg="DarkOrchid3", fg="white",
                         font=("Nonne", 20), command=openWordsAnalogiesPage)
-    button2 = tk.Button(window, text="Arata cuvinte similare", height=2, width=20, bg="DarkOrchid3", fg="white",
-                        font=("None", 20))
+    button2 = tk.Button(window, text="Relatie de hiponimie", height=2, width=20, bg="DarkOrchid3", fg="white",
+                        font=("Nonne", 20), command=openHyponymyPercentagePage)
     button3 = tk.Button(window, text="Reset", height=2, width=20, bg="DarkOrchid3", fg="white", font=("None", 20))
+    button4 = tk.Button(window, text="Start", height=2, width=20, bg="DarkOrchid3", fg="white",
+                        font=("None", 20))
 
     checkbox1 = tk.Checkbutton(window, text="Arata vectori", bg="LightSteelBlue1", font=("None", 20))
 
@@ -83,14 +104,84 @@ def SimilarWordsPage():
 
     t.place(relx=0.25, anchor="w", rely=0.30)
 
-    button2.place(relx=0.05, anchor="w", rely=0.47)
-    button3.place(relx=0.26, anchor="w", rely=0.47)
-    button1.place(relx=0.47, anchor="w", rely=0.47)
+    button1.place(relx=0.05, anchor="w", rely=0.47)
+    button2.place(relx=0.26, anchor="w", rely=0.47)
+    button3.place(relx=0.47, anchor="w", rely=0.47)
+    button4.place(relx=0.47, anchor="w", rely=0.30)
 
     checkbox1.place(relx=0.05, anchor="w", rely=0.6)
 
     label3.place(relx=0.70, anchor="w", rely=0.4)
     label4.place(relx=0.05, anchor="w", rely=0.85)
+
+    tk.mainloop()
+
+
+def HyponymyPercentagePage():
+    window = tk.Tk()
+    window.title("CoRoLa")
+    window.geometry("1920x1080")
+    window.config(bg="LightSteelBlue1")
+
+    def openSimilarWordsPage():
+        window.destroy()
+        SimilarWordsPage()
+
+    def openWordsAnalogiesPage():
+        window.destroy()
+        WordsAnalogiesPage()
+
+    h = tk.Label(window, text="CoRoLa", bg="LightSteelBlue1", font=("Courier", 45, 'bold'))
+
+    explanation = """Introduceti cuvinte in campurile de mai jos pentru a obtine probabilitatea """
+    explanation2 = """existentei unei relatii de hiponimie intre ele."""
+
+    e = tk.Label(window, text=explanation, bg="LightSteelBlue1", font=("None", 25))
+    e2 = tk.Label(window, text=explanation2, bg="LightSteelBlue1", font=("None", 25))
+
+    a = tk.Label(window, text="Cuvantul A", bg="LightSteelBlue1", font=("None", 25))
+    b = tk.Label(window, text="Cuvantul B", bg="LightSteelBlue1", font=("None", 25))
+
+    a_input = tk.Text(window, height=3, width=40, bg="misty rose")
+    b_input = tk.Text(window, height=3, width=40, bg="misty rose")
+
+    var = tk.IntVar()
+    checkbox = tk.Checkbutton(window, text='Arata vectori', bg="LightSteelBlue1", font=("None", 25), variable=var,
+                              onvalue=1, offvalue=0)
+
+    button1 = tk.Button(window, text='Cuvinte similare', bg="DarkOrchid3", fg="white", font=("None", 20), width=15,
+                        height=2, command=openSimilarWordsPage)
+    button2 = tk.Button(window, text='Analogii de cuvinte', bg="DarkOrchid3", fg="white", font=("None", 20), width=15,
+                        height=2, command=openWordsAnalogiesPage)
+    button3 = tk.Button(window, text='Reset', bg="DarkOrchid3", fg="white", font=("None", 20), width=15, height=2)
+    button4 = tk.Button(window, text='Start', bg="DarkOrchid3", fg="white", font=("None", 20), width=15, height=2)
+
+    text1 = tk.Label(window, text="Spatiu pentru afisarea procentului existentei relatiei de hiponimie", bg="white",
+                     width=107, height=5,
+                     font=("None", 20))
+    text2 = tk.Label(window, text="Spatiu pentru afisarea vectorilor", bg="white", width=107, height=6,
+                     font=("None", 20))
+
+    h.place(relx=0.5, anchor="center", rely=0.05)
+
+    e.place(relx=0.5, anchor="center", rely=0.13)
+    e2.place(relx=0.5, anchor="center", rely=0.17)
+
+    a.place(relx=0.30, anchor="w", rely=0.25)
+    b.place(relx=0.60, anchor="w", rely=0.25)
+
+    a_input.place(relx=0.25, anchor="w", rely=0.35)
+    b_input.place(relx=0.55, anchor="w", rely=0.35)
+
+    checkbox.place(relx=0.43, anchor="w", rely=0.40)
+
+    button1.place(relx=0.12, anchor="w", rely=0.47)
+    button2.place(relx=0.32, anchor="w", rely=0.47)
+    button3.place(relx=0.52, anchor="w", rely=0.47)
+    button4.place(relx=0.72, anchor="w", rely=0.47)
+
+    text1.place(relx=0.05, anchor="w", rely=0.65)
+    text2.place(relx=0.05, anchor="w", rely=0.83)
 
     tk.mainloop()
 
@@ -105,9 +196,13 @@ def WordsAnalogiesPage():
         window.destroy()
         SimilarWordsPage()
 
+    def openHyponymyPercentagePage():
+        window.destroy()
+        HyponymyPercentagePage()
+
     h = tk.Label(window, text="CoRoLa", bg="LightSteelBlue1", font=("Courier", 45, 'bold'))
 
-    explanation = """Introduceti cuvintele in campurile de mai jos pentru a obtine o analogie de forma """
+    explanation = """Introduceti cuvinte in campurile de mai jos pentru a obtine o analogie de forma """
     explanation2 = """A - B + C, unde A, B si C sunt reprezentarile vectoriale ale cuvintelor."""
 
     e = tk.Label(window, text=explanation, bg="LightSteelBlue1", font=("None", 25))
@@ -140,8 +235,10 @@ def WordsAnalogiesPage():
 
     button1 = tk.Button(window, text='Cuvinte similare', bg="DarkOrchid3", fg="white", font=("None", 20), width=15,
                         height=2, command=openSimilarWordsPage)
-    button2 = tk.Button(window, text='Start', bg="DarkOrchid3", fg="white", font=("None", 20), width=15, height=2)
+    button2 = tk.Button(window, text='Relatie de hiponimie', bg="DarkOrchid3", fg="white", font=("None", 20), width=15,
+                        height=2, command=openHyponymyPercentagePage)
     button3 = tk.Button(window, text='Reset', bg="DarkOrchid3", fg="white", font=("None", 20), width=15, height=2)
+    button4 = tk.Button(window, text='Start', bg="DarkOrchid3", fg="white", font=("None", 20), width=15, height=2)
 
     text1 = tk.Label(window, text="Spatiu pentru afisarea analogiei", bg="white", width=107, height=5,
                      font=("None", 20))
@@ -164,8 +261,9 @@ def WordsAnalogiesPage():
     checkbox.place(relx=0.43, anchor="w", rely=0.40)
 
     button1.place(relx=0.12, anchor="w", rely=0.47)
-    button2.place(relx=0.42, anchor="w", rely=0.47)
-    button3.place(relx=0.72, anchor="w", rely=0.47)
+    button2.place(relx=0.32, anchor="w", rely=0.47)
+    button3.place(relx=0.52, anchor="w", rely=0.47)
+    button4.place(relx=0.72, anchor="w", rely=0.47)
 
     text1.place(relx=0.05, anchor="w", rely=0.65)
     text2.place(relx=0.05, anchor="w", rely=0.83)
