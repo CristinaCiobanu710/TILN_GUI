@@ -1,0 +1,25 @@
+body{
+    background:#CAE1FF;
+    text-align:center;
+}
+
+h1{
+    font-size:40px;
+    font-family:verdana; 
+}
+
+p{
+    font-family:verdana;
+}
+button{
+    padding:30px; 
+    padding-top:15px; 
+    padding-bottom:15px; 
+    background-color:#9A32CD;
+}
+ 
+a{
+    color:white;
+    text-decoration: none;
+    font-size:20px;
+}

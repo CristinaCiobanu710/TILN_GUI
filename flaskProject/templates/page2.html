@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoRoLa</title>
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body style="background:#CAE1FF;text-align:center; ">
+    <h1 style="font-size:40px; font-family:verdana; ">
+        <b>CoRoLa</b>
+    </h1>
+
+    <p style="font-size:20px; font-family:verdana;" >Introduceti cuvinte in campurile de mai jos pentru a obtine o analogie de forma A-B+C , unde A, B si C sunt reprezentarile vectoriale ale cuvintelor.</p>
+    <div class="words">
+        <p style="float:left;"></p>
+        <p style="display: inline;padding:10%;font-size:25px;">Cuvantul A</p>
+        <p style="display: inline;padding:10%;font-size:25px;">Cuvantul B</p>
+        <p style="display:inline;padding:10%;font-size:25px;">Cuvantul C</p>
+    </div>
+    <br>
+    <div class="inputs">
+        <p style="float:left;"></p>
+        <input style="display:inline;background-color: #ffe4e1; padding:5px;" type="text" />
+        <image style="width:5%; display:inline-block; margin-left:5%; "src="{{url_for('static',filename = 'images/minus.png')}}" >
+        <input style="display:inline;margin-left:5%;background-color: #ffe4e1; padding:5px;" type="text" />
+        <image style="width:3%; display:inline-block; margin-left:5%; "src="{{url_for('static',filename = 'images/plus.png')}}" ></image>
+        <input style="display:inline;margin-left:5%;background-color: #ffe4e1; padding:5px;" type="text" />
+    </div>
+    <br>
+    <div class="check" style="text-align: center;">
+        <input type="checkbox"> 
+        <label style="font-size:20px;">Arata vectori</label>
+    </div>
+    <br>
+    <div class="buttons">
+        <button style="margin-right:10%; padding:50px; padding-top:15px; padding-bottom:15px;background-color:#9A32CD;"><a style="color:black;text-decoration: none;" href="{{ url_for('page3') }}">Cuvinte similare</a></button>
+        <button style="margin-right:10%; padding:50px; padding-top:15px; padding-bottom:15px;background-color:#9A32CD;"><a style="color:black;text-decoration: none;" href="{{ url_for('page1') }}">Relatie de hiponimie</a></button>
+        <button style="margin-right:10%; padding:50px; padding-top:15px; padding-bottom:15px;background-color:#9A32CD;">Reset</button>
+        <button style="margin-right:10%; padding:50px; padding-top:15px; padding-bottom:15px;background-color:#9A32CD;">Start</button>
+    </div>
+    <p style="font-size:20px;padding:30px;background-color: #ffe4e1; text-align:center">Spatiu pentru afisarea analogiei</p>
+    <p style="font-size:20px;padding:30px;background-color: #ffe4e1; text-align:center">Spatiu pentru afisarea vectorilor</p>
+</body>
+</html>
